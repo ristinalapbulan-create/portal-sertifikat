@@ -100,7 +100,7 @@ export default function App() {
             />
             <div>
               <h1 className="font-bold text-[15px] sm:text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700">
-                Portal Layanan Unduh Sertifikat Elektronik
+                Portal Layanan Unduh Sertifikat
               </h1>
               <p className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wide uppercase">
                 Bidang Pembinaan SD - Disdikbud Tabalong
@@ -125,8 +125,7 @@ export default function App() {
             Unduh Mandiri <span className="text-cyan-300">Sertifikatmu.</span>
           </h2>
           <p className="text-base md:text-lg text-blue-100/90 max-w-3xl mx-auto font-light leading-relaxed">
-            Layanan mandiri pengunduhan sertifikat kegiatan yang diselenggarakan Bidang Pembinaan SD - Disdikbud Tabalong.<br />
-            Mudah, cepat, dan langsung dari perangkat Anda.
+            Layanan mandiri pengunduhan sertifikat kegiatan yang diselenggarakan Bidang Pembinaan SD Disdikbud Tabalong. Mudah, cepat, dan langsung dari perangkat Anda.
           </p>
         </div>
       </div>

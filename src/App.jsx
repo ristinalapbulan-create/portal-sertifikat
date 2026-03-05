@@ -12,8 +12,9 @@ import {
 // ==========================================
 // 1. KONFIGURASI API GOOGLE APPS SCRIPT
 // ==========================================
-// PENTING: Ganti nilai di bawah ini dengan SCRIPT_URL milik Anda dari Tahap 1.4
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzuL9ZGGBbrB1T5mx7iqB33Uskeu06uuhQVBdjMALLqAYkBuNcJOLv7mviwym6ULcXR/exec';
+// Mengambil URL dari file .env agar lebih aman
+const SCRIPT_URL = import.meta.env.VITE_SCRIPT_URL;
+
 // ==========================================
 // 2. MAIN COMPONENT
 // ==========================================
@@ -27,29 +28,21 @@ export default function App() {
   const [isLoadingData, setIsLoadingData] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fungsi Fetch Events (Bisa pakai Real API atau Mock API)
+  // Fungsi Fetch Events
   useEffect(() => {
     const loadEvents = async () => {
       setIsLoadingEvents(true);
       try {
         if (SCRIPT_URL) {
-          // REAL API dari GAS
           const res = await fetch(`${SCRIPT_URL}?action=getEvents`);
           const json = await res.json();
           if (json.success) setEvents(json.data);
           else setError("Gagal memuat daftar kegiatan dari server.");
-        } else {
-          // MOCK API (Untuk simulasi)
-          setTimeout(() => {
-            setEvents(MOCK_EVENTS);
-            setIsLoadingEvents(false);
-          }, 800);
-          return; // Skip set loading false di bawah
         }
       } catch (err) {
         setError("Terjadi kesalahan jaringan.");
       } finally {
-        if (SCRIPT_URL) setIsLoadingEvents(false);
+        setIsLoadingEvents(false);
       }
     };
     loadEvents();
@@ -69,23 +62,15 @@ export default function App() {
       
       try {
         if (SCRIPT_URL) {
-          // REAL API dari GAS
           const res = await fetch(`${SCRIPT_URL}?action=getData&event=${encodeURIComponent(selectedEvent)}`);
           const json = await res.json();
           if (json.success) setParticipants(json.data);
           else setError("Gagal memuat data peserta.");
-        } else {
-          // MOCK API (Untuk simulasi)
-          setTimeout(() => {
-            setParticipants(MOCK_DATA[selectedEvent] || []);
-            setIsLoadingData(false);
-          }, 1200);
-          return;
         }
       } catch (err) {
         setError("Terjadi kesalahan jaringan saat mengambil data.");
       } finally {
-        if (SCRIPT_URL) setIsLoadingData(false);
+        setIsLoadingData(false);
       }
     };
 
@@ -94,8 +79,8 @@ export default function App() {
 
   // Live Search Logic (Optimistic Filter)
   const filteredParticipants = useMemo(() => {
-    if (!searchQuery.trim()) return participants;
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return participants;
     return participants.filter(p => 
       p.nama.toLowerCase().includes(query) || 
       (p.instansi && p.instansi.toLowerCase().includes(query))
@@ -285,7 +270,7 @@ export default function App() {
                   {/* Data Rows */}
                   {!isLoadingData && filteredParticipants.length > 0 && (
                     filteredParticipants.map((p, index) => (
-                      <tr key={p.id} className="hover:bg-blue-50/50 transition-colors group">
+                      <tr key={p.id || index} className="hover:bg-blue-50/50 transition-colors group">
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-500 font-medium">
                           {index + 1}
                         </td>

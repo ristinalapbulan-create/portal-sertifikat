@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/portal-sertifikat/', // <-- TAMBAHKAN BARIS INI (Sesuai nama repo GitHub Anda)
+  // Pastikan TIDAK ADA tulisan "base: ..." di sini
 })

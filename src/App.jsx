@@ -92,13 +92,12 @@ export default function App() {
       <header className="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white p-1.5 rounded-xl shadow-sm border border-slate-100">
-              <img 
-                src="https://sipandusd.disdikbudtabalong.id/tabalong-smart.png" 
-                alt="Logo Tabalong" 
-                className="h-8 w-auto object-contain"
-              />
-            </div>
+            {/* Logo Tabalong (Border & Background dihapus) */}
+            <img 
+              src="https://sipandusd.disdikbudtabalong.id/tabalong-smart.png" 
+              alt="Logo Tabalong" 
+              className="h-9 sm:h-10 w-auto object-contain drop-shadow-sm"
+            />
             <div>
               <h1 className="font-bold text-[15px] sm:text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700">
                 Portal Sertifikat Elektronik
@@ -113,7 +112,6 @@ export default function App() {
 
       {/* HERO SECTION - MODERN GRADIENT */}
       <div className="relative bg-gradient-to-br from-blue-700 via-indigo-600 to-blue-500 overflow-hidden pt-16 pb-36">
-        {/* Abstract Shapes */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl"></div>
           <div className="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
@@ -135,7 +133,7 @@ export default function App() {
       {/* MAIN CONTENT */}
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 relative z-20 pb-20">
         
-        {/* CONTROLS SECTION - FLOATING CARD */}
+        {/* CONTROLS SECTION */}
         <div className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white p-6 md:p-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
@@ -155,7 +153,7 @@ export default function App() {
                 >
                   <option value="" disabled>-- Daftar Kegiatan Tersedia --</option>
                   {isLoadingEvents ? (
-                    <option disabled>Memuat daftar kegiatan...</option>
+                    <option disabled>Hadangi satumat lah...</option>
                   ) : (
                     events.map((evt, idx) => (
                       <option key={idx} value={evt}>{evt}</option>
@@ -194,7 +192,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* INFO BOX (Lebih subtle) */}
+        {/* INFO BOX */}
         <div className="bg-blue-50/80 border border-blue-100 rounded-2xl p-4 mb-8 flex items-start gap-3 shadow-sm">
           <Sparkles className="text-blue-500 shrink-0 mt-0.5" size={20} />
           <p className="text-blue-800/80 text-sm leading-relaxed font-medium">
@@ -232,24 +230,21 @@ export default function App() {
             </div>
           )}
 
-          {/* Data List (MODERN LIST VIEW) */}
+          {/* Data List */}
           {selectedEvent && (
             <div className="space-y-4">
               
-              {/* Skeletons */}
+              {/* Tampilan Loading "Hadangi Satumat Lah" */}
               {isLoadingData && (
-                Array.from({ length: 4 }).map((_, idx) => (
-                  <div key={`skeleton-${idx}`} className="flex items-center justify-between p-5 bg-white rounded-2xl border border-slate-100 shadow-sm animate-pulse">
-                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-slate-100 rounded-full"></div>
-                      <div>
-                        <div className="h-4 bg-slate-200 rounded-md w-48 mb-2"></div>
-                        <div className="h-3 bg-slate-100 rounded-md w-32"></div>
-                      </div>
-                    </div>
-                    <div className="h-10 w-28 bg-slate-100 rounded-xl"></div>
-                  </div>
-                ))
+                <div className="flex flex-col items-center justify-center p-16 text-center bg-white rounded-3xl border border-slate-100 shadow-[0_2px_10px_rgb(0,0,0,0.02)]">
+                  <Loader2 className="h-12 w-12 text-blue-500 animate-spin mb-4" />
+                  <h3 className="text-xl font-bold text-slate-800 animate-pulse bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+                    Hadangi satumat lah...
+                  </h3>
+                  <p className="mt-2 text-slate-500 text-sm">
+                    Sedang menarik data sertifikat dari server.
+                  </p>
+                </div>
               )}
 
               {/* Real Data */}

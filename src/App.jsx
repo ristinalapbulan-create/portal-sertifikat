@@ -100,7 +100,7 @@ export default function App() {
             />
             <div>
               <h1 className="font-bold text-[15px] sm:text-lg bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-indigo-700">
-                Portal Sertifikat Elektronik
+                Portal Layanan Unduh Sertifikat Elektronik
               </h1>
               <p className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wide uppercase">
                 Bidang Pembinaan SD - Disdikbud Tabalong
@@ -122,10 +122,10 @@ export default function App() {
             <Award className="h-10 w-10 text-blue-100" />
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white drop-shadow-md">
-            Cetak Bukti <span className="text-cyan-300">Prestasimu.</span>
+            Unduh Mandiri <span className="text-cyan-300">Sertifikatmu.</span>
           </h2>
-          <p className="text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-            Layanan mandiri pengunduhan sertifikat kegiatan. Mudah, cepat, dan langsung dari perangkat Anda.
+          <p className="text-base md:text-lg text-blue-100/90 max-w-3xl mx-auto font-light leading-relaxed">
+            Layanan mandiri pengunduhan sertifikat kegiatan yang diselenggarakan Bidang Pembinaan SD - Disdikbud Tabalong.<br>Mudah, cepat, dan langsung dari perangkat Anda.</br>
           </p>
         </div>
       </div>
@@ -196,7 +196,7 @@ export default function App() {
         <div className="bg-blue-50/80 border border-blue-100 rounded-2xl p-4 mb-8 flex items-start gap-3 shadow-sm">
           <Sparkles className="text-blue-500 shrink-0 mt-0.5" size={20} />
           <p className="text-blue-800/80 text-sm leading-relaxed font-medium">
-            Sertifikat digenerate otomatis berdasarkan data registrasi. Pastikan nama Anda diketik sesuai dengan data awal.
+            Sertifikat digenerate otomatis berdasarkan data registrasi. Pastikan nama Anda diketik sesuai dengan data awal. Nama dan detail yang tertera pada sertifikat diisi secara otomatis oleh sistem berdasarkan data yang Bapak/Ibu masukkan saat registrasi. Mohon pengertiannya bahwa panitia tidak dapat memproses revisi apabila terdapat kesalahan ejaan (typo) dari isian awal tersebut.
           </p>
         </div>
 
@@ -315,7 +315,7 @@ export default function App() {
       <footer className="py-8 text-center mt-auto">
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-sm text-slate-400 font-medium">
-            &copy; {new Date().getFullYear()} Disdikbud Tabalong. Dikembangkan untuk kemudahan layanan.
+            &copy; {new Date().getFullYear()} | Bidang Pembinaan SD - Dinas Pendidikan dan Kebudayaan Kab. Tabalong.
           </p>
         </div>
       </footer>

@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Pastikan TIDAK ADA tulisan "base: ..." di sini
+  base: './', // Tambahkan ini agar aman saat di-deploy ke sub-folder GitHub Pages
 })

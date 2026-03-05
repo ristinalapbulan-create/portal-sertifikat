@@ -125,7 +125,7 @@ export default function App() {
             Unduh Mandiri <span className="text-cyan-300">Sertifikatmu.</span>
           </h2>
           <p className="text-base md:text-lg text-blue-100/90 max-w-3xl mx-auto font-light leading-relaxed">
-            Layanan mandiri pengunduhan sertifikat kegiatan yang diselenggarakan Bidang Pembinaan SD - Disdikbud Tabalong.<br>Mudah, cepat, dan langsung dari perangkat Anda.</br>
+            Layanan mandiri pengunduhan sertifikat kegiatan yang diselenggarakan Bidang Pembinaan SD - Disdikbud Tabalong.<br>Mudah, cepat, dan langsung dari perangkat Anda.<br />
           </p>
         </div>
       </div>
